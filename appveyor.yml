@@ -26,7 +26,7 @@ environment:
     appVersion: '1.0.0'
 
   access_token:
-    secure: yn/EbeC2Ri0Kg8c/3/J200r6V4WJlr7gl+odGe00oV8NkfylrKKcgK9WlCDcDWTh
+    secure: Tq5+IiRsS/Xt3ksEBWrlso255+m0aQs0LOngGmF9ntbcHFopQul3LZYeCqvGq4CJ
   
   matrix:
   - R_VERSION: 3.6.1
@@ -105,7 +105,7 @@ for:
   deploy:
     provider: GitHub
     auth_token:
-      secure: yn/EbeC2Ri0Kg8c/3/J200r6V4WJlr7gl+odGe00oV8NkfylrKKcgK9WlCDcDWTh
+      secure: Tq5+IiRsS/Xt3ksEBWrlso255+m0aQs0LOngGmF9ntbcHFopQul3LZYeCqvGq4CJ
     tag: $(appVersion)
     description: ''
     force_update: false
