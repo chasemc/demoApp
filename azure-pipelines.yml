@@ -1,0 +1,10 @@
+
+resources:
+  repositories:
+    - repository: demoApp
+      type: github
+      name: chasemc/demoApp
+      endpoint: chasemc
+
+jobs:
+  - template: azure-tidyverse.yml@demoApp
