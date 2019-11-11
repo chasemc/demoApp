@@ -92,15 +92,18 @@ for:
     - git push origin master
   
   after_test:
-    - Rscript -e "electricShine::buildElectricApp(appName = 'My_App', 
-                                  packageName = 'My_Demo',
-                                  semanticVersion = desc::desc_get_version(list.files(pattern = 'DESCRIPTION', ignore.case = T, recursive = F)),
-                                  buildPath = getwd(),
-                                  MRANdate = as.character(Sys.Date() - 3), 
-                                  functionName = 'run_app', 
-                                  githubRepo = 'chasemc/demoApp',
-                                  localPath  = NULL,
-                                  only64 = TRUE)"
+    - Rscript -e "electricShine::electrify(app_name = 'My_App',
+                         short_description = 'My demo application',
+                         semantic_version = desc::desc_get_version(list.files(pattern = 'DESCRIPTION', ignore.case = T, recursive = F)),
+                         build_path = getwd(),
+                         MRANdate = as.character(Sys.Date() - 3),
+                         cran_like_url = NULL,
+                         function_name = 'run_app',
+                         git_host = 'github',
+                         git_repo = 'chasemc/demoApp',
+                         local_package_path = NULL,
+                         package_install_opts = list(type = 'binary'),
+                         run_build = TRUE)"
   
   
   deploy:
