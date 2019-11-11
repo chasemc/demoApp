@@ -7,4 +7,4 @@ resources:
       endpoint: chasemc
 
 jobs:
-  - template: azure-tidyverse.yml@demoApp
+  - template: templates/azure-main.yml@demoApp
