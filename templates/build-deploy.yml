@@ -1,0 +1,20 @@
+steps:
+  - bash: |
+      Rscript -e "install.packages('remotes', repos = 'http://cran.rstudio.com')"
+      Rscript -e "remotes::install_github('chasemc/electricShine')"
+      Rscript -e  "electricShine::electrify(app_name = 'My_App', \
+                         short_description = 'My demo application', \
+                         semantic_version = desc::desc_get_version(writeLines(readLines(url("https://raw.githubusercontent.com/chasemc/demoApp/master/DESCRIPTION")))), \
+                         build_path = getwd(), \
+                         MRANdate = as.character(Sys.Date() - 3), \
+                         cran_like_url = NULL, \
+                         function_name = 'run_app', \
+                         git_host = 'github', \
+                         git_repo = 'chasemc/demoApp', \
+                         local_package_path = NULL, \
+                         package_install_opts = list(type = 'binary'), \
+                         run_build = TRUE)"
+  - publish: $(System.DefaultWorkingDirectory)/My_App/dist
+    artifact: demoApp
+    displayName: 'Build electricShine package'
+
