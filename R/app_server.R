@@ -18,7 +18,7 @@ app_server <- function(input, output, session) {
                        
                        if (class(data[[x]]) == "data.frame" && ncol(data[[x]]) > 1) {
                          
-                         zz <- try(stats::prcomp(data[[x]], scale = TRUE))
+                         zz <- try(stats::prcomp(data[[x]], scale = TRUE), silent=T)
                          if (class(zz) == "try-error" ){
                            return(NULL)
                          } else {
