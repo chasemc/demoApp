@@ -16,7 +16,7 @@ app_server <- function(input, output, session) {
   princAll <- lapply(ls(data),
                      function(x){
                        
-                       if (class(data[[x]]) == "data.frame" && ncol(data[[x]]) > 1) {
+                       if (inherits(data[[x]], "data.frame") && ncol(data[[x]]) > 1) {
                          
                          zz <- try(stats::prcomp(data[[x]], scale = TRUE), silent=T)
                          if (class(zz) == "try-error" ){
